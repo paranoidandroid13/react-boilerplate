@@ -34,6 +34,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin(),
+    // замедляет сборку, раскомментить при необходимости
     // new BundleAnalyzerPlugin({
     //   analyzerPort: 8080,
     //   openAnalyzer: true
