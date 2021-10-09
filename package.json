@@ -63,7 +63,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "cross-env yarn run lint"
+            "pre-commit": "yarn run lint"
         }
     }
 }
