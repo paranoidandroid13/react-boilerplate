@@ -1,8 +1,7 @@
-import Button from './Button'
 import './scss/index.scss'
-// import './button-styles.css'
 
-const element = document.body
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Router from './client/Router'
 
-// comment number two
-Button(element)
+ReactDOM.render(<Router />, document.getElementById('root'))

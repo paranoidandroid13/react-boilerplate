@@ -1,29 +1,37 @@
 {
   "parser": "babel-eslint",
   "root": true,
-  "extends": ["airbnb", "prettier", "plugin:react/recommended"],
+  "extends": ["airbnb", "prettier", "plugin:react/recommended", "plugin:import/recommended"],
+
   "parserOptions": {
     "ecmaVersion": 6,
     "ecmaFeatures": {
       "jsx": true
     }
   },
+
   "plugins": ["prettier", "react-hooks"],
+  "settings": {
+    // "import/extensions": [".js", ".jsx"],
+
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      },
+
+      "alias": {
+        "map": [["pages", "./src/client/pages"]],
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
   "env": {
     "browser": true,
     "node": true,
     "mocha": true,
     "es6": true
   },
-  "globals": {
-    "IS_PROD": true,
-    "STRIPE_PUBLIC_KEY": true,
-    "SENTRY_CLIENT_URL": true,
-    "deferredPrompt": true,
-    "axios": true,
-    "globalThis": true,
-    "ENABLE_SOCKETS": true
-  },
+  "globals": {},
   "rules": {
     "prettier/prettier": ["warn"],
     "space-before-function-paren": "off",
@@ -52,12 +60,13 @@
       {
         "ignoreComments": true,
         "ignoreStrings": true,
-        "code": 240
+        "code": 80
       }
     ],
     "react/jsx-uses-react": 1,
     "react/sort-comp": "off",
     "import/no-cycle": "off",
+    "import/extensions": [0, ["error", "always", { "ignorePackages": true }]],
     "react/prop-types": "off",
     "linebreak-style": "off",
     "global-require": "off",
