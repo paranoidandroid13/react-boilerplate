@@ -10,10 +10,19 @@
     }
   },
 
-  "plugins": ["prettier", "react-hooks", "import"],
+  "plugins": ["prettier", "react-hooks"],
   "settings": {
+    // "import/extensions": [".js", ".jsx"],
+
     "import/resolver": {
-      "alias": true
+      "node": {
+        "extensions": [".js", ".jsx"]
+      },
+
+      "alias": {
+        "map": [["pages", "./src/client/pages"]],
+        "extensions": [".js", ".jsx"]
+      }
     }
   },
   "env": {
@@ -57,6 +66,7 @@
     "react/jsx-uses-react": 1,
     "react/sort-comp": "off",
     "import/no-cycle": "off",
+    "import/extensions": [0, ["error", "always", { "ignorePackages": true }]],
     "react/prop-types": "off",
     "linebreak-style": "off",
     "global-require": "off",
