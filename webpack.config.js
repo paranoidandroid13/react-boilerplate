@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const NotifierPlugin = require('webpack-notifier')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { HotModuleReplacementPlugin } = require('webpack')
 
 module.exports = {
   entry: './src/index.js',
@@ -55,6 +56,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    new HotModuleReplacementPlugin(),
     // new BundleAnalyzerPlugin({
     //   analyzerPort: 8080,
     //   openAnalyzer: true
@@ -67,9 +69,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     port: 9000,
-    open: true
+    open: true,
+    hot: true
   }
 }
-
-console.log(__dirname)
-console.log(path.resolve(__dirname, 'src/client/pages/'))
